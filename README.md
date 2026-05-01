@@ -61,7 +61,7 @@ This project simulates a **real-world e-commerce data platform**, ingesting raw 
 The pipeline follows the **Medallion Architecture** — a layered design where each layer has a specific role and quality contract:
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#333333', 'lineColor': '#444444', 'secondaryColor': '#ffffff', 'tertiaryColor': '#ffffff', 'background': '#ffffff' }}}%%
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#333333', 'lineColor': '#999999', 'secondaryColor': '#ffffff', 'tertiaryColor': '#ffffff', 'background': '#ffffff' }}}%%
 flowchart TB
     subgraph Source["Synthetic Data Generation (Notebook 00)"]
         S1[Customers<br/>10,000 rows]
@@ -156,7 +156,7 @@ flowchart TB
 End-to-end execution sequence across the 7 notebooks:
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#333333', 'lineColor': '#444444', 'background': '#ffffff' }}}%%
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#333333', 'lineColor': '#999999', 'background': '#ffffff' }}}%%
 flowchart LR
     N00["00<br/>Setup and<br/>Data Generation"] --> N01["01<br/>Bronze<br/>Ingestion"]
     N01 --> N02["02<br/>Silver<br/>Transformation"]
@@ -183,7 +183,7 @@ Each notebook is **self-contained** and **idempotent** — it reads from persist
 The Gold layer is modeled as a classic **star schema** — one fact table at the center, joined to multiple denormalized dimension tables. This design is optimized for analytical queries and supported natively by every BI tool (Power BI, Tableau, Looker, etc.).
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#333333', 'lineColor': '#444444', 'background': '#ffffff', 'mainBkg': '#fff9c4', 'secondaryColor': '#e3f2fd' }}}%%
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#333333', 'lineColor': '#999999', 'background': '#ffffff', 'mainBkg': '#fff9c4', 'secondaryColor': '#e3f2fd' }}}%%
 erDiagram
     DIM_DATE ||--o{ FACT_ORDERS : "order_date_key"
     DIM_CUSTOMERS ||--o{ FACT_ORDERS : "customer_id"
@@ -265,7 +265,7 @@ erDiagram
 A reusable, configurable quality engine inspired by tools like **Great Expectations** and **Databricks Lakehouse Monitoring**:
 
 ```mermaid
-%%{init: {'theme':'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#333333', 'lineColor': '#444444', 'background': '#ffffff' }}}%%
+%%{init: {'theme':'base', 'themeVariables': { 'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#333333', 'lineColor': '#999999', 'background': '#ffffff' }}}%%
 flowchart LR
     Input[Silver Tables] --> Engine[DataQualityEngine<br/>Python class]
 
